@@ -2,7 +2,7 @@ package com.pluralsight;
 
 public class Main {
     public static void main(String[] args) {
-        /*Room room1 = new Room(1, 100, true, false);
+        Room room1 = new Room(1, 100, true, false);
         Room room2 = new Room(1, 100, false, true);
         Room room3 = new Room(1, 100, false, false);
 
@@ -18,9 +18,7 @@ public class Main {
         System.out.println(reservation1.getPrice() + " " + reservation1.getReservationTotal());
         System.out.println(reservation2.getPrice() + " " + reservation2.getReservationTotal());
         System.out.println(employee1.getRegularHours() + " " + employee1.getOvertimeHours() + " " + employee1.getTotalPay());
-        System.out.println(employee2.getRegularHours() + " " + employee2.getOvertimeHours() + " " + employee2.getTotalPay());*/
-
-
+        System.out.println(employee2.getRegularHours() + " " + employee2.getOvertimeHours() + " " + employee2.getTotalPay());
 
     }
 }
