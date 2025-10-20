@@ -19,17 +19,12 @@ public class Reservation {
         this.roomType = roomType;
     }
 
-    public double getPrice(){
+    public double getPrice() {
         double basePrice;
-        if (roomType.equalsIgnoreCase("king")) {
-            basePrice = 139;
-        } else {
-            basePrice = 124;
-        }
 
-        if (isWeekend) {
-            basePrice += basePrice * 0.1;
-        }
+        basePrice = (roomType.equalsIgnoreCase("king") ? 139.00 : 124.00);
+
+        basePrice *= (isWeekend ? 1.10 : 1.00);
 
         return basePrice;
     }
@@ -46,7 +41,7 @@ public class Reservation {
         return isWeekend;
     }
 
-    public void setWeekend(boolean weekend) {
+    public void setIsWeekend(boolean weekend) {
         isWeekend = weekend;
     }
 
