@@ -57,23 +57,27 @@ public class Employee {
 
     public void punchIn() {
         LocalTime time = LocalTime.now();
-        double hour = time.getHour();
-        double minutes = time.getMinute() / 60.0;
-        double currentTime = hour + minutes;
-        punchIn(currentTime);
+        int hour = time.getHour();
+        int minutes = time.getMinute();
+        double currentTime = hour + (minutes / 60.0);
+        startTime = currentTime;
     }
 
     public void punchOut(double time) {
-        hoursWorked += time - startTime;
+        double shiftHoursWorked = time - startTime;
+        hoursWorked += shiftHoursWorked;
         startTime = 0;
     }
 
     public void punchOut() {
         LocalTime time = LocalTime.now();
-        double hour = time.getHour();
-        double minutes = time.getMinute() / 60.0;
-        double currentTime = hour + minutes;
-        punchOut(currentTime);
+        int hour = time.getHour();
+        int minutes = time.getMinute();
+        double currentTime = hour + (minutes / 60.0);
+        hoursWorked += currentTime - startTime;
+        double shiftHoursWorked = currentTime - startTime;
+        hoursWorked += shiftHoursWorked;
+        startTime = 0;
     }
 
     public void punchTimeCard(double time) {
