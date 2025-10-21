@@ -6,17 +6,15 @@ public class Employee {
     private String department;
     private double payRate;
     private double hoursWorked;
-    private double lastPunchInTime;
-    private boolean isClockedIn;
+    private double startTime;
 
-    public Employee(int employeeId, String name, String department, double payRate, double hoursWorked) {
+    public Employee(int employeeId, String name, String department, double payRate) {
         this.employeeId = employeeId;
         this.name = name;
         this.department = department;
         this.payRate = payRate;
-        this.hoursWorked = hoursWorked;
-        this.lastPunchInTime = 0;
-        this.isClockedIn = false;
+        this.hoursWorked = 0;
+        this.startTime = 0;
     }
 
     public int getEmployeeId() {
@@ -51,17 +49,13 @@ public class Employee {
         return (getRegularHours() * payRate) + (getOvertimeHours() * (payRate * 1.5));
     }
 
-    public boolean punchTimeCard(double time) {
-        if (!isClockedIn) {
-            lastPunchInTime = time;
-            isClockedIn = true;
-            return true;
+    public void punchTimeCard(double time) {
+        if (startTime == 0) {
+            startTime = time;
         } else {
-            double shiftHoursWorked = time - lastPunchInTime;
+            double shiftHoursWorked = time - startTime;
             hoursWorked += shiftHoursWorked;
-            isClockedIn = false;
-            lastPunchInTime = 0;
-            return false;
+            startTime = 0;
         }
     }
 }
