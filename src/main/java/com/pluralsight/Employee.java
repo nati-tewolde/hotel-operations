@@ -84,7 +84,8 @@ public class Employee {
         if (startTime == 0) {
             startTime = time;
         } else {
-            hoursWorked += time - startTime;
+            double shiftHoursWorked = time - startTime;
+            hoursWorked += shiftHoursWorked;
             startTime = 0;
         }
     }
